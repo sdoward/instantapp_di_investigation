@@ -2,11 +2,11 @@ package sdoward.com.sharingmodule;
 
 import android.app.Application;
 
-public class SharingApplication extends Application {
+public class SharingApplication extends Application implements ComponentProvider {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-       // DaggerSharingComponent.builder().
+    public SharingComponent provideSharingComponent() {
+        return DaggerInstantAppSharingComponent.create();
     }
+
 }
